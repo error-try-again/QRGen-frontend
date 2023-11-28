@@ -33,7 +33,7 @@ function dispatchClearQRCodeUrl(
 }
 
 function handleEndpointSelection(qrBatchCount: number) {
-  return qrBatchCount > 1 ? '/batch' : '/generate';
+  return qrBatchCount > 1 ? '/qr/batch' : '/qr/generate';
 }
 
 export const GenerateButtonsSection = () => {
