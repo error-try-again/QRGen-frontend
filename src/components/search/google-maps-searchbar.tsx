@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { styles } from '../../assets/styles';
 import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-change.tsx';
 
@@ -24,8 +24,8 @@ export const GoogleMapsSearchbar = () => {
       delayDebounceFunction = setTimeout(() => {
         axios
           .post(autocompleteEndpoint, { location: input })
-          .then(response => setSuggestions(response.data.res))
-          .catch(error =>
+          .then((response: AxiosResponse) => setSuggestions(response.data.res))
+          .catch((error: AxiosError) =>
             console.error('Error fetching autocomplete suggestions:', error)
           );
       }, 300);
@@ -41,7 +41,12 @@ export const GoogleMapsSearchbar = () => {
   }, [input]);
 
   const handleSelect = (description: string) => {
-    handleInputChange(description, 'location');
+    // Create a fake event object for handleInputChange
+    const fakeEvent = {
+      target: { value: description }
+    } as ChangeEvent<HTMLInputElement>;
+
+    handleInputChange(fakeEvent, 'location');
   };
 
   return (
