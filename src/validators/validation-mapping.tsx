@@ -31,7 +31,7 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
   },
   [Tabs.Review]: {
     errorMessage: 'Please search for a location',
-    fields: ['location']
+    fields: ['placeId']
   },
   [Tabs.MeCard]: {
     errorMessage: 'First Name, Last Name and Phone are required',

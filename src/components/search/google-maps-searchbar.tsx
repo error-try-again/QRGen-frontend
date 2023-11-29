@@ -1,7 +1,8 @@
 import { useState, useEffect, ChangeEvent } from 'react';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
 import { styles } from '../../assets/styles';
 import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-change.tsx';
+import axios from 'axios';
 
 type Suggestion = {
   description: string;
@@ -11,10 +12,11 @@ type Suggestion = {
 export const GoogleMapsSearchbar = () => {
   const [input, setInput] = useState<string>('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [selectedDescription, setSelectedDescription] = useState<string>('');
 
   const handleInputChange = useHandleInputChange();
 
-  const { input: inputStyle, label, fieldContainer } = styles;
+  const { input: inputStyle, label, fieldContainer, dropdownItem } = styles; // Assuming you have a dropdownItem style
   const autocompleteEndpoint = '/qr/autocomplete';
 
   useEffect(() => {
@@ -24,7 +26,10 @@ export const GoogleMapsSearchbar = () => {
       delayDebounceFunction = setTimeout(() => {
         axios
           .post(autocompleteEndpoint, { location: input })
-          .then((response: AxiosResponse) => setSuggestions(response.data.res))
+          .then((response: AxiosResponse) => {
+            setSuggestions(response.data.res);
+            setSelectedDescription('');
+          })
           .catch((error: AxiosError) =>
             console.error('Error fetching autocomplete suggestions:', error)
           );
@@ -45,8 +50,10 @@ export const GoogleMapsSearchbar = () => {
     const fakeEvent = {
       target: { value: description }
     } as ChangeEvent<HTMLInputElement>;
-
-    handleInputChange(fakeEvent, 'location');
+    handleInputChange(fakeEvent, 'placeId');
+    setInput(description); // Update the input field with the selected description
+    setSelectedDescription(description); // Update the selected description
+    setSuggestions([]); // Clear suggestions once a selection is made
   };
 
   return (
@@ -61,7 +68,7 @@ export const GoogleMapsSearchbar = () => {
         type="text"
         id="google-maps-search"
         style={inputStyle}
-        value={input}
+        value={selectedDescription || input}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           setInput(event.target.value)
         }
@@ -77,7 +84,7 @@ export const GoogleMapsSearchbar = () => {
             onKeyDown={event =>
               event.key === 'Enter' && handleSelect(suggestion.description)
             }
-            style={{ cursor: 'pointer' }}
+            style={dropdownItem} // Apply styles for dropdown items
           >
             {suggestion.description}
           </div>

@@ -1,6 +1,12 @@
 import { CSSProperties } from 'react';
 
 export const styles: { [key: string]: CSSProperties } = {
+  dropdownItem: {
+    cursor: 'pointer',
+    padding: '5px',
+    borderRadius: '4px',
+    border: '1px solid #ccc'
+  },
   bizCardsColumn: {
     flex: '1',
     minWidth: '300px'

@@ -4,7 +4,6 @@ import { useCore } from '../use-core';
 
 export const useHandleInputChange = () => {
   const { dispatch, state } = useCore();
-
   return useCallback(
     (
       valueOrEvent:
