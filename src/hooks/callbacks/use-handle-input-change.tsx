@@ -13,13 +13,10 @@ export const useHandleInputChange = () => {
         | ChangeEvent<HTMLTextAreaElement>,
       fieldName: keyof QRCodeRequest
     ) => {
-      let value: string;
-
-      if (typeof valueOrEvent === 'string') {
-        value = valueOrEvent;
-      } else {
-        value = valueOrEvent.target.value;
-      }
+      const value =
+        typeof valueOrEvent === 'string'
+          ? valueOrEvent
+          : valueOrEvent.target.value;
 
       if (state[fieldName] !== value) {
         dispatch({
