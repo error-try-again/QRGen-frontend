@@ -29,6 +29,10 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
     fields: ['latitude', 'longitude'],
     validationError: 'Invalid latitude or longitude'
   },
+  [Tabs.Review]: {
+    errorMessage: 'Google Review is required',
+    fields: ['location']
+  },
   [Tabs.MeCard]: {
     errorMessage: 'First Name, Last Name and Phone are required',
     fields: ['firstName', 'lastName', 'phone1']

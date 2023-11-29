@@ -95,6 +95,7 @@ export const GenerateButtonsSection = () => {
       return;
     }
 
+    // Take the users fields, state, tab type, etc. and create a request body
     const requestData =
       qrBatchCount > 1
         ? { qrCodes: batchData }

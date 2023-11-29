@@ -8,6 +8,7 @@ export enum Tabs {
   Event = 'Event',
   Zoom = 'Zoom',
   GeoLocation = 'GeoLocation',
+  Review = 'Review',
   Crypto = 'Crypto',
   MeCard = 'MeCard',
   VCard = 'VCard'

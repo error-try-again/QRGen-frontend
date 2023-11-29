@@ -13,6 +13,7 @@ import { UrlTab } from '../components/tabs/url-tab';
 import { VCardTab } from '../components/tabs/v-card-tab';
 import { WiFiTab } from '../components/tabs/wifi-tab';
 import { ZoomTab } from '../components/tabs/zoom-tab';
+import { GoogleReviewTab } from '../components/tabs/google-review-tab.tsx';
 
 export const TabRenderMap: React.FC = () => {
   const tabRenderers = {
@@ -20,6 +21,7 @@ export const TabRenderMap: React.FC = () => {
     [Tabs.Email]: () => <EmailTab />,
     [Tabs.Event]: () => <EventTab />,
     [Tabs.GeoLocation]: () => <GeoLocationTab />,
+    [Tabs.Review]: () => <GoogleReviewTab />,
     [Tabs.MeCard]: () => <MeCardTab />,
     [Tabs.Phone]: () => <PhoneTab />,
     [Tabs.SMS]: () => <SmsTab />,

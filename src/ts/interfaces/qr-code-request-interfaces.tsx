@@ -45,6 +45,11 @@ export interface GeoLocationRequest {
   longitude?: string;
 }
 
+export interface GoogleReviewRequest {
+  location?: string;
+  placeId?: string;
+}
+
 export interface CryptoRequest {
   cryptoType?: string;
   address?: string;
@@ -103,6 +108,7 @@ export interface QRCodeRequest
     SMSRequest,
     EventRequest,
     GeoLocationRequest,
+    GoogleReviewRequest,
     CryptoRequest,
     ZoomRequest,
     VCardRequest,
