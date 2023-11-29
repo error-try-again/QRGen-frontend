@@ -1,6 +1,13 @@
 import { CSSProperties } from 'react';
 
 export const styles: { [key: string]: CSSProperties } = {
+  clearIcon: {
+    position: 'absolute',
+    right: '5px',
+    top: '5px',
+    cursor: 'pointer',
+    alignSelf: 'flex-end'
+  },
   dropdownItem: {
     cursor: 'pointer',
     padding: '5px',
@@ -43,6 +50,18 @@ export const styles: { [key: string]: CSSProperties } = {
   generateButton: {
     fontSize: '14px',
     padding: '8px 15px'
+  },
+  inputContainer: {
+    position: 'relative',
+
+    display: 'flex',
+    alignItems: 'center'
+  },
+  searchbar: {
+    borderRadius: '4px',
+    fontSize: '16px',
+    padding: '5px',
+    width: '100%'
   },
   input: {
     borderRadius: '4px',

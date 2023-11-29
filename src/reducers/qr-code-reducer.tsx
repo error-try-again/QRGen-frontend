@@ -17,7 +17,14 @@ export const qrCodeReducer = (
       return { ...state, qrCodeURL: action.value, isLoading: false };
     }
     case 'RESET_STATE': {
-        return { ...initialState, qrCodeURL: state.qrCodeURL };
+      // reset the state to the initial state, pass the qrCodeURL and placeId values to the new state
+      // This is so that the QR code URL and place ID are not cleared when the state is reset
+      return {
+        ...initialState,
+        qrCodeURL: state.qrCodeURL,
+        placeId: state.placeId,
+        description: state.description
+      };
     }
     default: {
       return state;

@@ -46,7 +46,7 @@ export interface GeoLocationRequest {
 }
 
 export interface GoogleReviewRequest {
-  location?: string;
+  description?: string;
   placeId?: string;
 }
 
