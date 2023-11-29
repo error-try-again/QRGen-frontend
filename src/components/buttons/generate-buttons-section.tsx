@@ -11,6 +11,7 @@ import { UpdateBatchJob } from '../../services/batching/update-batch-job';
 import { useCore } from '../../hooks/use-core';
 import { setInitialTabState } from '../../helpers/check-tab-type';
 import { useEffect } from 'react';
+import { getBackendUrl } from '../../environment/determine-endpoint-type.tsx';
 
 function setGenericErrorMessage(
   setError: (value: ((previousState: string) => string) | string) => void
@@ -33,7 +34,15 @@ function dispatchClearQRCodeUrl(
 }
 
 function handleEndpointSelection(qrBatchCount: number) {
-  return qrBatchCount > 1 ? '/qr/batch' : '/qr/generate';
+  const endpointType = getBackendUrl() + '/qr';
+
+  const batch = '/batch';
+  const single = '/generate';
+
+  const batchEndpoint = endpointType + batch;
+  const singleEndpoint = endpointType + single;
+
+  return qrBatchCount > 1 ? batchEndpoint : singleEndpoint;
 }
 
 export const GenerateButtonsSection = () => {
@@ -52,7 +61,6 @@ export const GenerateButtonsSection = () => {
 
   useEffect(() => {
     const initialState = setInitialTabState(activeTab);
-
     dispatchInitialTabState({ dispatch, initialState });
   }, [activeTab, dispatch]);
 
@@ -95,6 +103,7 @@ export const GenerateButtonsSection = () => {
       return;
     }
 
+    // Take the users fields, state, tab type, etc. and create a request body
     const requestData =
       qrBatchCount > 1
         ? { qrCodes: batchData }
@@ -108,9 +117,19 @@ export const GenerateButtonsSection = () => {
       });
 
       if (!response.ok || response.status === 429) {
-        setGenericErrorMessage(setError);
-        dispatchClearQRCodeUrl(dispatch);
-        resetBatchAndLoadingState({ setBatchData, setQrBatchCount, dispatch });
+        const { errorType } = await response.json();
+        if (errorType) {
+          const specificErrorMessage =
+            errorType ||
+            'Failed to generate the QR code. Please try again later.';
+          setError(specificErrorMessage);
+          dispatchClearQRCodeUrl(dispatch);
+          resetBatchAndLoadingState({
+            setBatchData,
+            setQrBatchCount,
+            dispatch
+          });
+        }
         return;
       }
 

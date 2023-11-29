@@ -23,6 +23,7 @@ export function ValidateInput({
 
   const validateRequiredFields = (): boolean => {
     const requiredFields = requiredFieldsMapping[activeTab];
+
     if (!requiredFields) {
       return true;
     }

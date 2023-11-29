@@ -29,6 +29,10 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
     fields: ['latitude', 'longitude'],
     validationError: 'Invalid latitude or longitude'
   },
+  [Tabs.Review]: {
+    errorMessage: 'Please select a location from the dropdown',
+    fields: ['placeId', 'description']
+  },
   [Tabs.MeCard]: {
     errorMessage: 'First Name, Last Name and Phone are required',
     fields: ['firstName', 'lastName', 'phone1']

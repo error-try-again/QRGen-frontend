@@ -6,14 +6,17 @@ export const useHandleInputChange = () => {
   const { dispatch, state } = useCore();
   return useCallback(
     (
-      event: ChangeEvent<
-        HTMLElement & {
-          value: string;
-        }
-      >,
+      valueOrEvent:
+        | string
+        | ChangeEvent<HTMLInputElement>
+        | ChangeEvent<HTMLTextAreaElement>,
       fieldName: keyof QRCodeRequest
     ) => {
-      const value = event.target.value;
+      const value =
+        typeof valueOrEvent === 'string'
+          ? valueOrEvent
+          : valueOrEvent.target.value;
+
       if (state[fieldName] !== value) {
         dispatch({
           type: 'SET_FIELD',
