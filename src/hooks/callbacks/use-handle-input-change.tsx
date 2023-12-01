@@ -9,7 +9,12 @@ export const useHandleInputChange = () => {
       valueOrEvent:
         | string
         | ChangeEvent<HTMLInputElement>
-        | ChangeEvent<HTMLTextAreaElement>,
+        | ChangeEvent<HTMLTextAreaElement>
+        | ChangeEvent<
+            HTMLElement & {
+              value: string;
+            }
+          >,
       fieldName: keyof QRCodeRequest
     ) => {
       const value =
