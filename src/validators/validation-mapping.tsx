@@ -1,8 +1,9 @@
 import { Tabs } from '../ts/enums/tabs-enum';
-import { isValidPhoneNumber } from '../utils/is-valid-phone.tsx';
+import { isValidPhoneNumber } from './is-valid-phone.tsx';
 import { QRCodeGeneratorState } from '../ts/interfaces/qr-code-generator-state.tsx';
-import { isValidUrl } from '../utils/is-valid-url.tsx';
-import { isTextWithinQRSizeLimit } from '../utils/is-within-qr-size-limit.tsx';
+import { isValidUrl } from './is-valid-url.tsx';
+import { isTextWithinQRSizeLimit } from './is-within-qr-size-limit.tsx';
+import { isValidAmount } from './is-amount-valid.tsx';
 
 type TabFieldMapping = {
   errorMessage: string;
@@ -14,7 +15,9 @@ type TabFieldMapping = {
 export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
   [Tabs.Crypto]: {
     errorMessage: 'Address is required',
-    fields: ['address']
+    fields: ['address', 'cryptoType'],
+    validation: (state: QRCodeGeneratorState) => isValidAmount(state.amount),
+    validationError: 'Invalid amount'
   },
   [Tabs.Email]: {
     errorMessage: 'Email is required',
@@ -29,10 +32,6 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
     fields: ['latitude', 'longitude'],
     validationError: 'Invalid latitude or longitude'
   },
-  [Tabs.Review]: {
-    errorMessage: 'Please select a location from the dropdown',
-    fields: ['placeId', 'description']
-  },
   [Tabs.MeCard]: {
     errorMessage: 'First Name, Last Name and Phone are required',
     fields: ['firstName', 'lastName', 'phone1']
@@ -43,6 +42,10 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
     validation: (state: QRCodeGeneratorState) =>
       isValidPhoneNumber(state.phone),
     validationError: 'Invalid phone number'
+  },
+  [Tabs.Review]: {
+    errorMessage: 'Please select a location from the dropdown',
+    fields: ['placeId', 'description']
   },
   [Tabs.SMS]: {
     errorMessage: 'Phone number and SMS message are required',

@@ -16,6 +16,7 @@ const DropdownFieldComponent: React.FC<{
   const friendlyKeyName =
     keyName.charAt(0).toUpperCase() +
     keyName.slice(1).replaceAll(/([A-Z])/g, ' $1');
+
   const { label, dropdown, fieldContainer } = styles;
 
   return (
