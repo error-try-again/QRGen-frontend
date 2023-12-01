@@ -2,7 +2,7 @@ import { Tabs } from '../ts/enums/tabs-enum';
 import { resetBatchAndLoadingState } from '../helpers/reset-loading-state';
 import { requiredFieldsMapping } from './validation-mapping';
 import { ValidateInputParameters } from '../ts/interfaces/component-interfaces';
-import { isInvalidEmail } from '../utils/is-invalid-email.tsx';
+import { isInvalidEmail } from './is-invalid-email.tsx';
 import { QRCodeGeneratorState } from '../ts/interfaces/qr-code-generator-state.tsx';
 
 export function ValidateInput({

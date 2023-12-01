@@ -5,41 +5,34 @@ import { Divider } from '../extras/divider';
 import { CRYPTO_TYPES } from '../../constants/constants';
 import { InputField } from '../fields/input-field';
 import { isFieldRequired } from '../../helpers/is-field-required';
-import { Tabs } from '../../ts/enums/tabs-enum';
-import { handleCryptoSelect } from '../../helpers/handle-crypto-select';
+import { Tabs } from '../../ts/enums/tabs-enum'; // import { handleCryptoSelect } from '../../helpers/handle-crypto-select';
+import { DropdownField } from '../fields/dropdown-field.tsx';
 
 export const CryptoTab = () => {
   const { sectionTitle, section } = styles;
-  const { dispatch, state, setError, selectedCrypto, setSelectedCrypto } =
-    useCore();
+  const { state, setError, selectedCrypto } = useCore();
 
   const handleInputChange = useHandleInputChange();
 
-  const handleCryptoChange = handleCryptoSelect({
-    setSelectedCrypto,
-    dispatch
-  });
+  // const handleCryptoChange = handleCryptoSelect({
+  //   setSelectedCrypto,
+  //   dispatch
+  // });
 
   return (
     <section style={section}>
       <h2 style={sectionTitle}>Crypto</h2>
       <Divider />
-      {CRYPTO_TYPES.map(cryptoType => (
-        <div key={cryptoType}>
-          <input
-            type="radio"
-            id={cryptoType}
-            name="cryptoType"
-            value={cryptoType}
-            checked={cryptoType === selectedCrypto}
-            onChange={() => {
-              handleCryptoChange({ cryptoType });
-            }}
-          />
-          <label htmlFor={cryptoType}> {cryptoType}</label>
-          <br />
-        </div>
-      ))}
+      <div>
+        <DropdownField
+          keyName="cryptoType"
+          handleChange={handleInputChange}
+          options={CRYPTO_TYPES}
+          value={state.cryptoType || ''}
+          setError={setError}
+        />
+      </div>
+      <Divider />
       {selectedCrypto && (
         <>
           <InputField

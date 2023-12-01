@@ -1,4 +1,4 @@
-import { isValidEmail } from './is-email-valid';
+import { isValidEmail } from './is-email-valid.tsx';
 
 export const areValidCcBcc = (emails: { email: string }): boolean =>
   emails.email
