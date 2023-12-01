@@ -45,7 +45,9 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
     validationError: 'Invalid phone number'
   },
   [Tabs.SMS]: {
-    errorMessage: 'Phone and SMS message are required',
+    errorMessage: 'Phone number and SMS message are required',
+    validation: (state: QRCodeGeneratorState) =>
+      isValidPhoneNumber(state.phone),
     fields: ['phone', 'sms']
   },
   [Tabs.Text]: {

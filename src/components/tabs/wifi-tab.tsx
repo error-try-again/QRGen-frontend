@@ -17,14 +17,14 @@ export const WiFiTab = () => {
       {InputFields({ keys: ['ssid', 'password'] })}
       <DropdownField
         keyName="encryption"
-        handleChange={() => handleInputChange}
+        handleChange={handleInputChange}
         options={['WEP', 'WPA', 'WPA2', 'WPA3']}
         value={state.encryption || ''}
         setError={setError}
       />
       <DropdownField
         keyName="hidden"
-        handleChange={() => handleInputChange}
+        handleChange={handleInputChange}
         options={['true', 'false']}
         value={state.hidden ? 'true' : 'false'}
         setError={setError}
