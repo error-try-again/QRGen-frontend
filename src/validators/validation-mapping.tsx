@@ -29,8 +29,7 @@ export const requiredFieldsMapping: Record<Tabs, TabFieldMapping> = {
   },
   [Tabs.GeoLocation]: {
     errorMessage: 'Latitude and Longitude are required',
-    fields: ['latitude', 'longitude'],
-    validationError: 'Invalid latitude or longitude'
+    fields: ['latitude', 'longitude']
   },
   [Tabs.MeCard]: {
     errorMessage: 'First Name, Last Name and Phone are required',

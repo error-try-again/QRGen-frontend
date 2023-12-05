@@ -15,13 +15,13 @@
 	}
 
 a {
-	color           : #5CBCFF;
+	color           : #0096ff;
 	font-weight     : 500;
 	text-decoration : inherit;
 	}
 
 a:hover {
-	color : #42B2FF;
+	color : #0e8adf;
 	}
 
 body {
@@ -39,7 +39,7 @@ h1 {
 
 button {
 	border-radius : 20px;
-	/*border: 1px solid transparent;*/
+	border: 1px solid transparent;
 	cursor        : pointer;
 	font-family   : inherit;
 	font-size     : 1em;
@@ -50,7 +50,7 @@ button {
 	}
 
 button:hover {
-	border-color : #42B2FF;
+	border-color : #0e8adf;
 	}
 
 button:focus,
@@ -65,7 +65,7 @@ button:focus-visible {
 		}
 
 	a:hover {
-		color : #42B2FF;
+		color : #0e8adf;
 		}
 
 	button {
