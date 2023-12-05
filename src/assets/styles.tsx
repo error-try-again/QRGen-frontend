@@ -128,8 +128,5 @@ export const styles: { [key: string]: CSSProperties } = {
   divider: {
     borderBottom: '1px solid #ccc',
     margin: '20px 0'
-  },
-  link: {
-    color: '#646cff'
   }
 };
