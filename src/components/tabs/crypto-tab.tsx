@@ -14,11 +14,6 @@ export const CryptoTab = () => {
 
   const handleInputChange = useHandleInputChange();
 
-  // const handleCryptoChange = handleCryptoSelect({
-  //   setSelectedCrypto,
-  //   dispatch
-  // });
-
   return (
     <section style={section}>
       <h2 style={sectionTitle}>Crypto</h2>
