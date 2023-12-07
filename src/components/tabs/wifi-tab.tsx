@@ -4,6 +4,7 @@ import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-cha
 import { Divider } from '../extras/divider';
 import { DropdownField } from '../fields/dropdown-field';
 import { InputFields } from '../../renders/render-input-fields';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const WiFiTab = () => {
   const { state, setError } = useCore();
@@ -29,6 +30,8 @@ export const WiFiTab = () => {
         value={state.hidden ? 'true' : 'false'}
         setError={setError}
       />
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };

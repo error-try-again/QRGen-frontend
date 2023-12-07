@@ -116,20 +116,18 @@ export const GenerateButtonsSection = () => {
         body: JSON.stringify(requestData)
       });
 
-      if (!response.ok || response.status === 429) {
-        const { errorType } = await response.json();
-        if (errorType) {
-          const specificErrorMessage =
-            errorType ||
-            'Failed to generate the QR code. Please try again later.';
-          setError(specificErrorMessage);
-          dispatchClearQRCodeUrl(dispatch);
-          resetBatchAndLoadingState({
-            setBatchData,
-            setQrBatchCount,
-            dispatch
-          });
+      if (!response.ok) {
+        const jsonResponse = await response.json();
+
+        // Check if the error structure is as expected
+        if (jsonResponse && jsonResponse.error && jsonResponse.error.message) {
+          setError(jsonResponse.error.message);
+        } else {
+          setGenericErrorMessage(setError); // Fallback to a generic error message
         }
+
+        dispatchClearQRCodeUrl(dispatch);
+        resetBatchAndLoadingState({ setBatchData, setQrBatchCount, dispatch });
         return;
       }
 

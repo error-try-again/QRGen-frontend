@@ -99,6 +99,17 @@ export interface MeCardRequest {
   notes?: string;
 }
 
+export interface BaseRequest {
+  type?: keyof typeof Tabs;
+  size?: string;
+  precision?: QRCodeErrorCorrectionLevel;
+  margin?: string;
+  colors?: {
+    dark: string;
+    light: string;
+  };
+}
+
 export interface QRCodeRequest
   extends UrlRequest,
     TextRequest,
@@ -112,8 +123,5 @@ export interface QRCodeRequest
     CryptoRequest,
     ZoomRequest,
     VCardRequest,
-    MeCardRequest {
-  type?: keyof typeof Tabs;
-  size?: string;
-  precision?: QRCodeErrorCorrectionLevel;
-}
+    MeCardRequest,
+    BaseRequest {}

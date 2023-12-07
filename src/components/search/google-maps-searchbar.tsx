@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, useRef } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { styles } from '../../assets/styles';
 import { ClearIcon } from '../icons/clear-icon.tsx';

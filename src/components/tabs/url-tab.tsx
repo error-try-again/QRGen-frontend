@@ -1,6 +1,7 @@
 import { styles } from '../../assets/styles';
 import { Divider } from '../extras/divider';
 import { InputFields } from '../../renders/render-input-fields';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const UrlTab = () => {
   const { sectionTitle, section } = styles;
@@ -9,6 +10,8 @@ export const UrlTab = () => {
       <h2 style={sectionTitle}>URL</h2>
       <Divider />
       {InputFields({ keys: ['url'] })}
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };

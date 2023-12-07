@@ -1,6 +1,7 @@
 import { styles } from '../../assets/styles';
 import { Divider } from '../extras/divider';
 import { RenderVCard } from '../../renders/render-v-card';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const VCardTab = () => {
   const { section, sectionTitle } = styles;
@@ -9,6 +10,8 @@ export const VCardTab = () => {
       <h2 style={sectionTitle}>VCard</h2>
       <Divider />
       <RenderVCard />
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };

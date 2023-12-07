@@ -2,6 +2,10 @@ import { QRCodeGeneratorState } from '../ts/interfaces/qr-code-generator-state';
 import { LatLng } from 'leaflet';
 
 export const initialState: QRCodeGeneratorState = {
+  colors: {
+    dark: '#000000',
+    light: '#ffffff'
+  },
   isLoading: false,
   qrCodeURL: '',
   size: '150',
@@ -22,5 +26,7 @@ export const CRYPTO_TYPES = [
 ];
 
 export const V_CARD_VERSION_LIST = ['4.0', '3.0', '2.1'];
+
+export const ERROR_CORRECTION_LEVELS = ['L', 'M', 'Q', 'H'];
 
 export const DESKTOP_MEDIA_QUERY_THRESHOLD = 768;

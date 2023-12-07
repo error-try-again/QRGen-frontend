@@ -19,6 +19,29 @@ const DropdownFieldComponent: React.FC<{
 
   const { label, dropdown, fieldContainer } = styles;
 
+  const getPlaceholder = (optionValue: string) => {
+    if (keyName === 'precision') {
+      switch (optionValue) {
+        case 'L': {
+          return ' - Lowest QR Code Quality';
+        }
+        case 'M': {
+          return ' - Medium QR Code Quality';
+        }
+        case 'Q': {
+          return ' - Higher QR Code Quality';
+        }
+        case 'H': {
+          return ' - Highest QR Code Quality';
+        }
+        default: {
+          return '';
+        }
+      }
+    }
+    return '';
+  };
+
   return (
     <div style={fieldContainer}>
       <label
@@ -42,7 +65,7 @@ const DropdownFieldComponent: React.FC<{
             key={option}
             value={option}
           >
-            {option}
+            {`${option}${getPlaceholder(option)}`}
           </option>
         ))}
       </select>

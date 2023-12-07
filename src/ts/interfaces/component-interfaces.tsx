@@ -15,7 +15,7 @@ export interface TabButtonParameters {
 export interface InputFieldParameters {
   isRequired?: boolean;
   keyName: keyof QRCodeRequest;
-  value: string | boolean | null | undefined;
+  value: string | boolean | { dark: string; light: string } | undefined;
   type?: string;
   setError: React.Dispatch<React.SetStateAction<string | ''>>;
   handleChange: (

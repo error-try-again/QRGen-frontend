@@ -11,14 +11,13 @@ import { DropdownField } from '../components/fields/dropdown-field.tsx';
 
 export function RenderVCard() {
   const { state, setError } = useCore();
-  const { label, fieldContainer } = styles;
+  const { fieldContainer } = styles;
 
   const handleInputChange = useHandleInputChange();
 
   return (
     <>
       <div style={fieldContainer}>
-        <p style={label}>vCard Version</p>
         <DropdownField
           keyName="version"
           handleChange={handleInputChange}

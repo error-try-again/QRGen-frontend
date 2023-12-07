@@ -6,6 +6,7 @@ import { InputField } from '../fields/input-field';
 import { isFieldRequired } from '../../helpers/is-field-required';
 import { Tabs } from '../../ts/enums/tabs-enum';
 import { ChangeEvent } from 'react';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const SmsTab = () => {
   const { state, setError } = useCore();
@@ -39,6 +40,8 @@ export const SmsTab = () => {
           placeholder="Enter your SMS message here"
         />
       </div>
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };

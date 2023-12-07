@@ -7,6 +7,15 @@ export const qrCodeReducer = (
   action: QRCodeGeneratorAction
 ): QRCodeGeneratorState => {
   switch (action.type) {
+    case 'UPDATE_COLORS': {
+      return {
+        ...state,
+        colors: {
+          ...state.colors,
+          ...action.value
+        }
+      };
+    }
     case 'SET_FIELD': {
       return { ...state, [action.field]: action.value };
     }
@@ -17,14 +26,16 @@ export const qrCodeReducer = (
       return { ...state, qrCodeURL: action.value, isLoading: false };
     }
     case 'RESET_STATE': {
-      // reset the state to the initial state, pass the qrCodeURL and placeId values to the new state
-      // This is so that the QR code URL and place ID are not cleared when the state is reset
-      return {
-        ...initialState,
+      const retainedFields = {
+        // Define fields to retain on reset
+        colors: state.colors,
         qrCodeURL: state.qrCodeURL,
         placeId: state.placeId,
-        description: state.description
+        description: state.description,
+        precision: state.precision,
+        cryptoType: state.cryptoType
       };
+      return { ...initialState, ...retainedFields };
     }
     default: {
       return state;

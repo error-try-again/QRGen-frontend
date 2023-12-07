@@ -7,6 +7,7 @@ import { InputField } from '../fields/input-field';
 import { isFieldRequired } from '../../helpers/is-field-required';
 import { Tabs } from '../../ts/enums/tabs-enum'; // import { handleCryptoSelect } from '../../helpers/handle-crypto-select';
 import { DropdownField } from '../fields/dropdown-field.tsx';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const CryptoTab = () => {
   const { sectionTitle, section } = styles;
@@ -27,7 +28,6 @@ export const CryptoTab = () => {
           setError={setError}
         />
       </div>
-      <Divider />
       {selectedCrypto && (
         <>
           <InputField
@@ -45,6 +45,8 @@ export const CryptoTab = () => {
           />
         </>
       )}
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };

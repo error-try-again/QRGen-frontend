@@ -4,15 +4,18 @@ import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-cha
 import { Divider } from '../extras/divider';
 import { InputFields } from '../../renders/render-input-fields';
 import { InputField } from '../fields/input-field';
+import { AdditionalOptions } from '../options/additional-options.tsx';
 
 export const EventTab = () => {
   const { state, setError } = useCore();
   const { sectionTitle, section } = styles;
   const handleInputChange = useHandleInputChange();
+
   return (
     <section style={section}>
       <h2 style={sectionTitle}>Event</h2>
       <Divider />
+
       {InputFields({ keys: ['event', 'venue'] })}
       <InputField
         keyName="startTime"
@@ -28,6 +31,8 @@ export const EventTab = () => {
         type="datetime-local"
         setError={setError}
       />
+      <Divider />
+      <AdditionalOptions />
     </section>
   );
 };
