@@ -7,6 +7,8 @@ import { isFieldRequired } from '../../helpers/is-field-required';
 import { Tabs } from '../../ts/enums/tabs-enum';
 import { ChangeEvent } from 'react';
 import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const SmsTab = () => {
   const { state, setError } = useCore();
@@ -42,6 +44,8 @@ export const SmsTab = () => {
       </div>
       <Divider />
       <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

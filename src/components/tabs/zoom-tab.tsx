@@ -2,6 +2,8 @@ import { styles } from '../../assets/styles';
 import { Divider } from '../extras/divider';
 import { InputFields } from '../../renders/render-input-fields';
 import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const ZoomTab = () => {
   const { sectionTitle, section } = styles;
@@ -12,6 +14,8 @@ export const ZoomTab = () => {
       {InputFields({ keys: ['zoomId', 'zoomPass'] })}
       <Divider />
       <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

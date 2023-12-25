@@ -5,17 +5,17 @@ import { Divider } from '../extras/divider';
 import { InputFields } from '../../renders/render-input-fields';
 import { InputField } from '../fields/input-field';
 import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const EventTab = () => {
   const { state, setError } = useCore();
   const { sectionTitle, section } = styles;
   const handleInputChange = useHandleInputChange();
-
   return (
     <section style={section}>
       <h2 style={sectionTitle}>Event</h2>
       <Divider />
-
       {InputFields({ keys: ['event', 'venue'] })}
       <InputField
         keyName="startTime"
@@ -33,6 +33,8 @@ export const EventTab = () => {
       />
       <Divider />
       <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

@@ -5,6 +5,8 @@ import { Divider } from '../extras/divider';
 import { ChangeEvent } from 'react';
 import { InputFields } from '../../renders/render-input-fields';
 import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const EmailTab = () => {
   const { state } = useCore();
@@ -14,7 +16,6 @@ export const EmailTab = () => {
     <section style={section}>
       <h2 style={sectionTitle}>Email</h2>
       <Divider />
-
       {InputFields({ keys: ['email', 'subject', 'cc', 'bcc'] })}
       <div style={fieldContainer}>
         <label
@@ -35,6 +36,8 @@ export const EmailTab = () => {
       </div>
       <Divider />
       <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

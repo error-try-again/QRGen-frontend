@@ -9,6 +9,8 @@ import { QRCodeRequest } from '../../ts/interfaces/qr-code-request-interfaces';
 import { MapContainer } from 'react-leaflet';
 import { LocationPicker } from '../../services/map-location-picker';
 import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const GeoLocationTab = () => {
   const { dispatch, state, setError } = useCore();
@@ -43,6 +45,8 @@ export const GeoLocationTab = () => {
       </MapContainer>
       <Divider />
       <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

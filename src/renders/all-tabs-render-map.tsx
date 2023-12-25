@@ -14,8 +14,15 @@ import { VCardTab } from '../components/tabs/v-card-tab';
 import { WiFiTab } from '../components/tabs/wifi-tab';
 import { ZoomTab } from '../components/tabs/zoom-tab';
 import { GoogleReviewTab } from '../components/tabs/google-review-tab.tsx';
+import {
+  googleGettingStartedUrl,
+  googleSdkEnabled,
+  qrgenDocumentsUrl
+} from '../config.tsx';
 
 export const TabRenderMap: React.FC = () => {
+  const { activeTab } = useCore();
+
   const tabRenderers = {
     [Tabs.Crypto]: () => <CryptoTab />,
     [Tabs.Email]: () => <EmailTab />,
@@ -23,7 +30,13 @@ export const TabRenderMap: React.FC = () => {
     [Tabs.GeoLocation]: () => <GeoLocationTab />,
     [Tabs.MeCard]: () => <MeCardTab />,
     [Tabs.Phone]: () => <PhoneTab />,
-    [Tabs.Review]: () => <GoogleReviewTab />,
+    [Tabs.Review]: () => (
+      <GoogleReviewTab
+        googleGettingStartedUrl={googleGettingStartedUrl}
+        qrgenDocumentsUrl={qrgenDocumentsUrl}
+        googleSdkEnabled={googleSdkEnabled}
+      />
+    ),
     [Tabs.SMS]: () => <SmsTab />,
     [Tabs.Text]: () => <TextTab />,
     [Tabs.Url]: () => <UrlTab />,
@@ -32,6 +45,5 @@ export const TabRenderMap: React.FC = () => {
     [Tabs.Zoom]: () => <ZoomTab />
   };
 
-  const { activeTab } = useCore();
   return tabRenderers[activeTab]();
 };
