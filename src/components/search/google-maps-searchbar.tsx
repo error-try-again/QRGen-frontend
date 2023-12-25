@@ -43,7 +43,9 @@ export const GoogleMapsSearchbar = () => {
         const response = await axios.post(autocompleteEndpoint, {
           location: userInput
         });
-        setSuggestions(response.data.res);
+        const { data } = response;
+        const { searchResponse } = data;
+        setSuggestions(searchResponse);
       } catch (error) {
         console.error('Error fetching autocomplete suggestions:', error);
       }
