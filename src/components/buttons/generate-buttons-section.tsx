@@ -106,18 +106,19 @@ export const GenerateButtonsSection = () => {
     // Take the users fields, state, tab type, etc. and create a request body
     const requestData =
       qrBatchCount > 1
-        ? { qrCodes: batchData }
+        ? { qrData: batchData }
         : { customData: { ...state }, type: Tabs[activeTab] };
 
     try {
       const response = await fetch(endpoint, {
-        method: 'POST',
+        body: JSON.stringify(requestData),
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestData)
+        method: 'POST'
       });
 
       if (!response.ok) {
         const jsonResponse = await response.json();
+        console.log(jsonResponse);
 
         // Check if the error structure is as expected
         if (jsonResponse && jsonResponse.error && jsonResponse.error.message) {
@@ -154,23 +155,39 @@ export const GenerateButtonsSection = () => {
   return (
     <div style={qrButtonsContainer}>
       <button
-        onClick={() => handleQRGeneration(true)}
-        style={generateButton}
-        aria-label="Add To Bulk"
-        aria-busy={state.isLoading}
-      >
-        Add To Bulk
-      </button>
-      <button
         onClick={() => handleQRGeneration(false)}
         style={generateButton}
         aria-label="Generate QR Code"
         aria-busy={state.isLoading}
       >
         {qrBatchCount >= 1
-          ? `Generate Zip (${qrBatchCount})`
+          ? `Download QR Zip (${qrBatchCount})`
           : 'Generate QR Code'}
       </button>
+      <button
+        onClick={() => handleQRGeneration(true)}
+        style={generateButton}
+        aria-label="Add To Bulk"
+        aria-busy={state.isLoading}
+      >
+        ➕
+      </button>
+      {qrBatchCount >= 1 ? (
+        <button
+          onClick={() => {
+            setBatchData([]);
+            setQrBatchCount(0);
+            dispatchClearQRCodeUrl(dispatch);
+          }}
+          style={generateButton}
+          aria-label="Clear All Current Batch Data"
+          aria-busy={state.isLoading}
+        >
+          🗑
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

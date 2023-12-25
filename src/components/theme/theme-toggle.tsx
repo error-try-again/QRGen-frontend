@@ -14,14 +14,14 @@ export const ThemeToggle = () => {
           role="img"
           aria-label="dark mode"
         >
-          Dark 🌙
+          Dark Mode 🌙
         </span>
       ) : (
         <span
           role="img"
           aria-label="light mode"
         >
-          Light ☀️
+          Light Mode ☀️
         </span>
       )}
     </button>

@@ -62,8 +62,7 @@ export const styles: { [key: string]: CSSProperties } = {
     width: '100%'
   },
   generateButton: {
-    fontSize: '14px',
-    padding: '8px 15px'
+    fontSize: '16px'
   },
   inputContainer: {
     position: 'relative',
@@ -134,15 +133,7 @@ export const styles: { [key: string]: CSSProperties } = {
     gap: '5px',
     marginBottom: '10px'
   },
-  themeContainer: {
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    margin: '0 auto',
-    maxWidth: '400px',
-    padding: '20px 0'
-  },
+  themeContainer: {},
   divider: {
     borderBottom: '1px solid #ccc',
     margin: '20px 0'

@@ -6,8 +6,8 @@ interface SectionWrapperProperties {
 }
 
 export const SectionWrapper: React.FC<SectionWrapperProperties> = ({
-  children
-}) => {
+                                                                     children
+                                                                   }) => {
   const { themeContainer, tabContainer } = styles;
 
   return (
