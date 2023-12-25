@@ -7,4 +7,4 @@ export const googleGettingStartedUrl =
 export const qrgenDocumentsUrl =
   'https://insomniacvoid.dev/posts/setup-google-reviews-qrgen';
 
-export const googleSdkEnabled = true;
+export const googleSdkEnabled = false;
