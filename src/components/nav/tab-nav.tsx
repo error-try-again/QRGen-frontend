@@ -6,6 +6,7 @@ import { useHandleTabChange } from '../../helpers/use-handle-tab-change';
 export const TabNav = () => {
   const { activeTab, setActiveTab } = useCore();
   const handleTabChange = useHandleTabChange();
+
   return (
     <>
       {Object.values(Tabs).map((tab: Tabs) => (

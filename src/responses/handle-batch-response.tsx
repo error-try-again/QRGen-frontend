@@ -1,5 +1,5 @@
-import { resetBatchAndLoadingState } from "../helpers/reset-loading-state";
-import { HandleResponseParameters } from "../ts/interfaces/component-interfaces";
+import { resetBatchAndLoadingState } from '../helpers/reset-loading-state';
+import { HandleResponseParameters } from '../ts/interfaces/component-interfaces';
 
 // Extract the filename from the content-disposition header
 function doesContentMatch(contentDisposition: string) {

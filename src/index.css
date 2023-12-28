@@ -1,27 +1,22 @@
 :root {
 	background-color       : #242424;
 	color                  : rgba(255, 255, 255, 0.87);
-	font-family            : Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-	/*color-scheme: light dark;*/
+	font-family            : sans-serif;
 	-webkit-font-smoothing : antialiased;
 	font-synthesis         : none;
-
 	font-weight            : 400;
 	line-height            : 1.5;
-	/*-moz-osx-font-smoothing  : grayscale;*/
 	text-rendering         : optimizeLegibility;
-	/*-webkit-text-size-adjust : 100%;*/
 	}
 
 a {
-	color           : #5CBCFF;
+	color           : #24A6FE;
 	font-weight     : 500;
 	text-decoration : inherit;
 	}
 
 a:hover {
-	color : #42B2FF;
+	color : #0e8adf;
 	}
 
 body {
@@ -38,19 +33,19 @@ h1 {
 	}
 
 button {
+	border        : 1px solid transparent;
 	border-radius : 20px;
-	/*border: 1px solid transparent;*/
 	cursor        : pointer;
 	font-family   : inherit;
 	font-size     : 1em;
 	font-weight   : 500;
 	/*background-color: #1a1a1a;*/
-	padding       : 0.6em 1.2em;
+	padding       : 0.4em 1em;
 	transition    : border-color 0.25s;
 	}
 
 button:hover {
-	border-color : #42B2FF;
+	border-color : #0e8adf;
 	}
 
 button:focus,
@@ -65,7 +60,7 @@ button:focus-visible {
 		}
 
 	a:hover {
-		color : #42B2FF;
+		color : #0e8adf;
 		}
 
 	button {

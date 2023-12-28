@@ -4,6 +4,9 @@ import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-cha
 import { Divider } from '../extras/divider';
 import { InputFields } from '../../renders/render-input-fields';
 import { InputField } from '../fields/input-field';
+import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const EventTab = () => {
   const { state, setError } = useCore();
@@ -28,6 +31,10 @@ export const EventTab = () => {
         type="datetime-local"
         setError={setError}
       />
+      <Divider />
+      <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

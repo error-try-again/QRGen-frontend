@@ -15,7 +15,7 @@ export interface TabButtonParameters {
 export interface InputFieldParameters {
   isRequired?: boolean;
   keyName: keyof QRCodeRequest;
-  value: string | boolean | null | undefined;
+  value: string | boolean | { dark: string; light: string } | undefined;
   type?: string;
   setError: React.Dispatch<React.SetStateAction<string | ''>>;
   handleChange: (
@@ -50,20 +50,6 @@ export interface HandleResponseParameters {
   setQrBatchCount: (
     value: ((previousState: number) => number) | number
   ) => void;
-}
-
-export interface HandleVersionSelectParameters {
-  setSelectedVersion: (
-    value: ((previousState: string) => string) | string
-  ) => void;
-  dispatch: React.Dispatch<QRCodeGeneratorAction>;
-}
-
-export interface HandelCryptoSelectParameters {
-  setSelectedCrypto: (
-    value: ((previousState: string) => string) | string
-  ) => void;
-  dispatch: React.Dispatch<QRCodeGeneratorAction>;
 }
 
 export interface UpdateBatchJobParameters {

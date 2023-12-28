@@ -4,6 +4,9 @@ import { useHandleInputChange } from '../../hooks/callbacks/use-handle-input-cha
 import { Divider } from '../extras/divider';
 import { ChangeEvent } from 'react';
 import { InputFields } from '../../renders/render-input-fields';
+import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const EmailTab = () => {
   const { state } = useCore();
@@ -31,6 +34,10 @@ export const EmailTab = () => {
           placeholder="Enter your email body here"
         />
       </div>
+      <Divider />
+      <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

@@ -8,7 +8,7 @@ export const InputField: React.FC<InputFieldParameters> = ({
   isRequired = false,
   keyName,
   value,
-  type = 'text',
+  type,
   setError,
   handleChange
 }) => {

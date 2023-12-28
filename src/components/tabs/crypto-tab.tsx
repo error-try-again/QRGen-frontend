@@ -7,18 +7,14 @@ import { InputField } from '../fields/input-field';
 import { isFieldRequired } from '../../helpers/is-field-required';
 import { Tabs } from '../../ts/enums/tabs-enum'; // import { handleCryptoSelect } from '../../helpers/handle-crypto-select';
 import { DropdownField } from '../fields/dropdown-field.tsx';
+import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const CryptoTab = () => {
   const { sectionTitle, section } = styles;
   const { state, setError, selectedCrypto } = useCore();
-
   const handleInputChange = useHandleInputChange();
-
-  // const handleCryptoChange = handleCryptoSelect({
-  //   setSelectedCrypto,
-  //   dispatch
-  // });
-
   return (
     <section style={section}>
       <h2 style={sectionTitle}>Crypto</h2>
@@ -32,7 +28,6 @@ export const CryptoTab = () => {
           setError={setError}
         />
       </div>
-      <Divider />
       {selectedCrypto && (
         <>
           <InputField
@@ -50,6 +45,10 @@ export const CryptoTab = () => {
           />
         </>
       )}
+      <Divider />
+      <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

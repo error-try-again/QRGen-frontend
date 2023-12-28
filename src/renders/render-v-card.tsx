@@ -4,43 +4,27 @@ import {
   V_CARD_VERSION_LIST
 } from '../constants/constants';
 import { VCardFields } from '../constants/fields';
-import { handleVersionSelect } from '../helpers/handle-version-select';
 import { useCore } from '../hooks/use-core';
 import { RenderFieldsInColumns } from './render-fields-as-cols';
 import { useHandleInputChange } from '../hooks/callbacks/use-handle-input-change';
+import { DropdownField } from '../components/fields/dropdown-field.tsx';
 
 export function RenderVCard() {
-  const { dispatch, selectedVersion, setSelectedVersion } = useCore();
-  const { label, fieldContainer } = styles;
-
-  const handleVersionChange = handleVersionSelect({
-    setSelectedVersion,
-    dispatch
-  });
+  const { state, setError } = useCore();
+  const { fieldContainer } = styles;
 
   const handleInputChange = useHandleInputChange();
 
   return (
     <>
       <div style={fieldContainer}>
-        <p style={label}>vCard Version</p>
-        {V_CARD_VERSION_LIST.map(version => {
-          return (
-            <div key={version}>
-              <input
-                type="radio"
-                id={`version_${version}`}
-                name="version"
-                value={version}
-                checked={selectedVersion === version}
-                onChange={() => {
-                  handleVersionChange({ version });
-                }}
-              />
-              <label htmlFor={`version_${version}`}>{version}</label>
-            </div>
-          );
-        })}
+        <DropdownField
+          keyName="version"
+          handleChange={handleInputChange}
+          options={V_CARD_VERSION_LIST}
+          value={state.version || ''}
+          setError={setError}
+        />
       </div>
       <>
         {window.innerWidth >= DESKTOP_MEDIA_QUERY_THRESHOLD ? (

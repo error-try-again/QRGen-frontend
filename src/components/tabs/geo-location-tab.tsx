@@ -8,6 +8,9 @@ import { Tabs } from '../../ts/enums/tabs-enum';
 import { QRCodeRequest } from '../../ts/interfaces/qr-code-request-interfaces';
 import { MapContainer } from 'react-leaflet';
 import { LocationPicker } from '../../services/map-location-picker';
+import { AdditionalOptions } from '../options/additional-options.tsx';
+import { ErrorSection } from '../errors/error-section.tsx';
+import { GenerateButtonsSection } from '../buttons/generate-buttons-section.tsx';
 
 export const GeoLocationTab = () => {
   const { dispatch, state, setError } = useCore();
@@ -17,6 +20,7 @@ export const GeoLocationTab = () => {
     <section style={section}>
       <h2 style={sectionTitle}>GeoLocation</h2>
       <Divider />
+
       {['latitude', 'longitude'].map(key => (
         <InputField
           isRequired={isFieldRequired(Tabs.GeoLocation, key)}
@@ -39,6 +43,10 @@ export const GeoLocationTab = () => {
           />
         </section>
       </MapContainer>
+      <Divider />
+      <AdditionalOptions />
+      <ErrorSection />
+      <GenerateButtonsSection />
     </section>
   );
 };

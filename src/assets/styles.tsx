@@ -1,6 +1,20 @@
 import { CSSProperties } from 'react';
 
 export const styles: { [key: string]: CSSProperties } = {
+  accordion: {
+    borderRadius: '4px',
+    fontSize: '16px',
+    padding: '5px',
+    marginTop: '1rem',
+    marginBottom: '1rem'
+  },
+  accordionTitle: {
+    marginRight: '5px',
+    transition: 'transform 0.3s ease'
+  },
+  accordionTitleOpen: {
+    transform: 'rotate(180deg)'
+  },
   clearIcon: {
     position: 'absolute',
     right: '5px',
@@ -48,12 +62,10 @@ export const styles: { [key: string]: CSSProperties } = {
     width: '100%'
   },
   generateButton: {
-    fontSize: '14px',
-    padding: '8px 15px'
+    fontSize: '16px'
   },
   inputContainer: {
     position: 'relative',
-
     display: 'flex',
     alignItems: 'center'
   },
@@ -62,6 +74,11 @@ export const styles: { [key: string]: CSSProperties } = {
     fontSize: '16px',
     padding: '5px',
     width: '100%'
+  },
+  colourPickerInput: {
+    width: '2rem',
+    height: '2rem',
+    margin: '0.5rem'
   },
   input: {
     borderRadius: '4px',
@@ -98,7 +115,8 @@ export const styles: { [key: string]: CSSProperties } = {
     justifyContent: 'space-between'
   },
   section: {
-    marginBottom: '20px'
+    marginBottom: '20px',
+    textAlign: 'initial'
   },
   sectionTitle: {
     fontSize: '18px',
@@ -113,12 +131,10 @@ export const styles: { [key: string]: CSSProperties } = {
   tabContainer: {
     flexWrap: 'wrap',
     gap: '5px',
-    marginBottom: '10px',
-    textAlign: 'initial'
+    marginBottom: '10px'
   },
   themeContainer: {
     alignItems: 'center',
-    display: 'flex',
     flexDirection: 'column',
     gap: '20px',
     margin: '0 auto',
@@ -128,8 +144,5 @@ export const styles: { [key: string]: CSSProperties } = {
   divider: {
     borderBottom: '1px solid #ccc',
     margin: '20px 0'
-  },
-  link: {
-    color: '#646cff'
   }
 };

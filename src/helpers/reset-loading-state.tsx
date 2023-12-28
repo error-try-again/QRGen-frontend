@@ -27,6 +27,7 @@ export function dispatchInitialTabState({
       }
     }
   }
+
   handleInitialDispatch();
 }
 
@@ -41,5 +42,6 @@ export function resetBatchAndLoadingState({
     dispatch({ type: 'SET_LOADING', value: false });
     dispatch({ type: 'RESET_STATE' });
   }
+
   clear();
 }
