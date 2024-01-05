@@ -5,11 +5,8 @@ import { styles } from '../../assets/styles.tsx';
 export const ColorPicker: React.FC = () => {
   const [backgroundColour, setBackgroundColour] = useState<string>('#000000');
   const [foregroundColour, setForegroundColour] = useState<string>('#ffffff');
-
   const { colourPickerInput, label } = styles;
-
   const handleInputChange = useHandleColourChange();
-
   return (
     <>
       <label
@@ -25,7 +22,7 @@ export const ColorPicker: React.FC = () => {
           style={label}
           htmlFor="dark-color"
         >
-          Background
+          Foreground
         </label>
         <input
           style={colourPickerInput}
@@ -44,7 +41,7 @@ export const ColorPicker: React.FC = () => {
           style={label}
           htmlFor="dark-color"
         >
-          Foreground
+          Background
         </label>
         <input
           style={colourPickerInput}

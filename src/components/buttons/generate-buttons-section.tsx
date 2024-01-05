@@ -167,7 +167,7 @@ export const GenerateButtonsSection = () => {
       <button
         onClick={() => handleQRGeneration(true)}
         style={generateButton}
-        aria-label="Add To Bulk"
+        aria-label="Add Item To Bulk"
         aria-busy={state.isLoading}
       >
         ➕

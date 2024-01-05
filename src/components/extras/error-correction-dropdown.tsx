@@ -7,9 +7,7 @@ import { ERROR_CORRECTION_LEVELS } from '../../constants/constants.tsx';
 export function ErrorCorrectionDropdown() {
   const { state, setError } = useCore();
   const { fieldContainer } = styles;
-
   const handleInputChange = useHandleInputChange();
-
   return (
     <>
       <div style={fieldContainer}>

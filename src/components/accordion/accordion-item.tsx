@@ -22,7 +22,7 @@ export const AccordionItem = ({ title, children }: AccordionItemProperties) => {
         }}
       >
         <span style={isOpen ? accordionTitleOpen : accordionTitle}>
-          {title} {isOpen ? '🔻' : '🔺'}
+          {title} {isOpen ? '🔺' : '🔻'}
         </span>
       </button>
       {isOpen && <div className="accordion-content">{children}</div>}
